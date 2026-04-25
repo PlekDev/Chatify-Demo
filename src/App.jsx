@@ -12,14 +12,13 @@ function App() {
   const [inputUser, setInputUser] = useState('')
 
   const joinRoom = (room) => {
-    if (!username) {
       const saved = localStorage.getItem(`chatify_user_${room}`)
       if (saved) {
         setUsername(saved)
       } else {
         setUsername('')
+        setInputUser('')
       }
-    }
     setCurrentRoom(room)
   }
 
