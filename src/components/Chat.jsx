@@ -53,7 +53,9 @@ const Chat = ({ username, room }) => {
   }
 
   const formatTime = (timestamp) => {
-    return new Date(timestamp).toLocaleTimeString('es-MX', {
+    const date = new Date(timestamp)
+    date.setHours(date.getHours()-6)
+    return date.toLocaleTimeString('es-MX', {
       hour: '2-digit',
       minute: '2-digit',
     })
