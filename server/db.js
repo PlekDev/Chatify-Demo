@@ -15,16 +15,20 @@ const pool = new Pool({
 
 // Crear tabla si no existe al arrancar
 const initDB = async () => {
-  await pool.query(`
-    CREATE TABLE IF NOT EXISTS messages (
-      id        SERIAL PRIMARY KEY,
-      content   TEXT NOT NULL,
-      username  VARCHAR(50) NOT NULL,
-      room      VARCHAR(50) NOT NULL,
-      created_at TIMESTAMP DEFAULT NOW()
-    )
-  `)
-  console.log('✅ Tabla messages lista')
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS messages (
+        id        SERIAL PRIMARY KEY,
+        content   TEXT NOT NULL,
+        username  VARCHAR(50) NOT NULL,
+        room      VARCHAR(50) NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW()
+      )
+    `)
+    console.log('✅ Tabla messages lista')
+  } catch (error) {
+    console.error('Error inicializando DB:', error)
+  }
 }
 
 initDB().catch(console.error)
