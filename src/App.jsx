@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Chat from './components/Chat'
 import './App.css'
 
-const ROOMS = ['General', 'clase :D', 'memes', 'cosas out context']
+const ROOMS = ['General, Tech Talk, Random, Gaming']
 
 function App() {
   const [currentRoom, setCurrentRoom] = useState(null)
