@@ -1,3 +1,4 @@
+/* PALETA DE COLORES PRINCIPALES */
 :root {
   --bg-dark: #1e0a30;
   --bg-sidebar: #012756;
@@ -16,15 +17,8 @@ body {
   color: var(--text-main);
 }
 
-/* Layout Container */
-.chat-main-container {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
+/* TODO LO RELACIONADO AL ROOM ------------------------------------------------------- */
 
-/* Room Selector (Landing) */
 .room-selector {
   display: flex;
   flex-direction: column;
@@ -60,7 +54,8 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Username Prompt */
+/* PROMPT PARA USERNAME -------------------------------------------------------------- */
+
 .username-prompt {
   display: flex;
   flex-direction: column;
@@ -101,9 +96,8 @@ body {
   cursor: pointer;
 }
 
-/* SEGUNDA PARTE -------------------------------------------------------- */
+/* USERS Y CHANNELS ------------------------------------------------------------------ */
 
-/* Sidebar Styles for Channels and Users */
 .container {
   display: flex;
   flex-direction: column;
@@ -122,7 +116,6 @@ body {
   border-left: 1px solid var(--bg-accent);
 }
 
-/* Items in sidebars */
 .channels, .users {
   padding: 10px 20px;
   margin: 4px 12px;
@@ -143,7 +136,41 @@ body {
   color: white;
 }
 
-/* Chat Component Layout */
+.sidebar-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue-light);
+  padding: 0 20px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+.channels.active {
+  background-color: var(--wine) !important;
+  color: white !important;
+}
+
+.status-dot {
+  height: 8px;
+  width: 8px;
+  background-color: #44b700;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.user-badge {
+  background: var(--bg-accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--blue-light);
+  border: 1px solid var(--morado-oscuro);
+}
+
+/* r u seeing this chat -------------------------------------------------------------- */
+
 .chat-container {
   flex: 1;
   display: flex;
@@ -162,6 +189,8 @@ body {
 .chat-header h2 { margin: 0; color: var(--blue-light); font-size: 1.2rem; }
 .chat-username { color: var(--text-dim); font-size: 0.9rem; }
 
+/* MENSAJES DEL CHAT */
+
 .messages-list {
   flex: 1;
   overflow-y: auto;
@@ -171,7 +200,6 @@ body {
   gap: 15px;
 }
 
-/* Message Bubbles */
 .message {
   display: flex;
   flex-direction: column;
@@ -213,7 +241,8 @@ body {
   display: block;
 }
 
-/* Input Area */
+/* INPUT AREA DEL CHAT */
+
 .chat-input-area {
   padding: 20px;
   display: flex;
@@ -243,37 +272,3 @@ body {
 }
 
 .send-btn:hover { opacity: 0.9; }
-
-.sidebar-title {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--blue-light);
-  padding: 0 20px;
-  margin-bottom: 15px;
-  opacity: 0.8;
-}
-
-/* The active channel gets the 'vino' color from your palette */
-.channels.active {
-  background-color: var(--wine) !important;
-  color: white !important;
-}
-
-.status-dot {
-  height: 8px;
-  width: 8px;
-  background-color: #44b700; /* Standard green for 'online' */
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.user-badge {
-  background: var(--bg-accent);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  color: var(--blue-light);
-  border: 1px solid var(--morado-oscuro);
-}
