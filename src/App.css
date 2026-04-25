@@ -23,6 +23,10 @@ body {
   justify-content: center;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  text-align: center;
+}
+
 /* ===== ROOM SELECTOR ===== */
 .room-selector {
   text-align: center;
@@ -118,6 +122,12 @@ body {
 }
 
 /* ===== CHAT CONTAINER ===== */
+
+.chat-main-container {
+  display: flex;
+  content-align: center;
+}
+
 .chat-container {
   display: flex;
   flex-direction: column;
