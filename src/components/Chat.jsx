@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import socket from '../socket'
+import './../App.css'
 
 const ROOMS = ['General', 'Tech Talk', 'Random', 'Gaming']
 
@@ -100,7 +101,9 @@ const Chat = ({ username, room, onLeave }) => {
   }
 
   const formatTime = (timestamp) => {
-    return new Date(timestamp).toLocaleTimeString('es-MX', {
+    const date = new Date(timestamp)
+    date.setHours(date.getHours()-6)
+    return date.toLocaleTimeString('es-MX', {
       hour: '2-digit',
       minute: '2-digit',
     })

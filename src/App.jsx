@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import Chat from './components/Chat'
-import Users from './components/Users'
-import Channels from './components/Channels'
 import './App.css'
 
 const ROOMS = ['General', 'Tech Talk', 'Random', 'Gaming']
@@ -81,16 +79,10 @@ function App() {
   }
 
   return (
-    <>
-      <div className="chat-main-container">
-        <Channels />
-        <Chat
-          username={username}
-          room={currentRoom}
-        />
-        <Users />
-      </div>
-    </>
+    <Chat
+      username={username}
+      room={currentRoom}
+    />
   )
 }
 
