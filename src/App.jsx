@@ -4,7 +4,7 @@ import Users from './components/Users'
 import Channels from './components/Channels'
 import './App.css'
 
-const ROOMS = ['General, Tech Talk, Random, Gaming']
+const ROOMS = ['General', 'Tech Talk', 'Random', 'Gaming']
 
 function App() {
   const [currentRoom, setCurrentRoom] = useState(null)
@@ -34,65 +34,61 @@ function App() {
     setUsername(name)
   }
 
-  // Pantalla de selección de room
+  // RETURN 1: Pantalla de selección de room
+
   if (!currentRoom) {
     return (
       <div className="room-selector">
-        <h1>Chatify</h1>
-        <p>Selecciona un room para comenzar</p>
-        <div className="rooms-grid">
-          {ROOMS.map((room) => (
-            <button
-              key={room}
-              className="room-btn"
-              onClick={() => joinRoom(room)}
-            >
-              # {room}
-            </button>
-          ))}
+        <div className="glass-card">
+          <h1 className="logo-text">Chatify</h1>
+          <p className="subtitle">Escoge un chat.</p>
+          <div className="rooms-grid">
+            {ROOMS.map((room) => (
+              <button
+                key={room}
+                className="room-btn"
+                onClick={() => joinRoom(room)}
+              >
+                <span className="hashtag">#</span> {room}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     )
   }
 
-  // Pantalla de ingreso de username si no existe
+  // RETURN 2: Pantalla de ingreso de username si no existe
   if (!username) {
     return (
       <div className="username-prompt">
-        <h2>Entrar a #{currentRoom}</h2>
-        <form onSubmit={handleUsernameSubmit}>
-          <input
-            type="text"
-            placeholder="Tu nombre de usuario"
-            value={inputUser}
-            onChange={(e) => setInputUser(e.target.value)}
-            autoFocus
-          />
-          <button type="submit">Entrar</button>
-        </form>
-        <button
-          className="back-btn"
-          onClick={() => setCurrentRoom(null)}
-        >
-          ← Volver
-        </button>
+        <div className="glass-card">
+          <h2>Únete a <span className="highlight">#{currentRoom}</span></h2>
+          <form onSubmit={handleUsernameSubmit}>
+            <input
+              type="text"
+              placeholder="Selecciona un nombre de usuario..."
+              value={inputUser}
+              onChange={(e) => setInputUser(e.target.value)}
+              autoFocus
+            />
+            <button className="submit-btn" type="submit">Connect</button>
+          </form>
+          <button className="back-link" onClick={() => setCurrentRoom(null)}>
+            ← Volver
+          </button>
+        </div>
       </div>
     )
   }
 
+  // RETURN 3: Channels, Chat y Users
   return (
-    <>
-      <div className="chat-main-container">
-        <Channels />
-        <Chat
-          username="rosita"
-          room="fresita"
-          /*username={username}
-          room={currentRoom}*/
-        />
-        <Users />
-      </div>
-    </>
+    <div className="chat-main-container">
+      <Channels activeRoom={currentRoom} setRoom={setCurrentRoom} />
+      <Chat username={username} room={currentRoom} />
+      <Users room={currentRoom} />
+    </div>
   )
 }
 
