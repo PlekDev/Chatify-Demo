@@ -84,7 +84,7 @@ function App() {
 
   // RETURN 3: Channels, Chat y Users
   return (
-    <div className="chat-main-container">
+    <div className="app-main-container">
       <Channels activeRoom={currentRoom} setRoom={setCurrentRoom} />
       <Chat username={username} room={currentRoom} />
       <Users room={currentRoom} />
