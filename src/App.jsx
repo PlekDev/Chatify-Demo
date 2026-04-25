@@ -1,111 +1,89 @@
-import { useEffect, useState, useRef } from 'react'
-import socket from '../socket'
+import { useState } from 'react'
+import Chat from './components/Chat'
+import './App.css'
 
 const ROOMS = ['General', 'Tech Talk', 'Random', 'Gaming']
 
-const Chat = ({ username, room }) => {
-  const [messages, setMessages] = useState([])
-  const [input, setInput] = useState('')
-  const bottomRef = useRef(null)
+function App() {
+  const [currentRoom, setCurrentRoom] = useState(null)
+  const [username, setUsername] = useState('')
+  const [inputUser, setInputUser] = useState('')
 
-  useEffect(() => {
-    // Conectar socket y unirse al room
-    socket.connect()
-    socket.emit('join room', { username, room })
-
-    // Cargar historial al unirse
-    socket.on('message history', (history) => {
-      setMessages(history)
-    })
-
-    // Escuchar mensajes nuevos en tiempo real
-    socket.on('chat message', (message) => {
-      setMessages((prev) => [...prev, message])
-    })
-
-    return () => {
-      socket.emit('leave room', { room })
-      socket.off('message history')
-      socket.off('chat message')
-      socket.disconnect()
+  const joinRoom = (room) => {
+    if (!username) {
+      const saved = localStorage.getItem(`chatify_user_${room}`)
+      if (saved) {
+        setUsername(saved)
+        setCurrentRoom(room)
+        return
+      }
+      // Pedir username si no existe
+      setCurrentRoom(room)
+      return
     }
-  }, [username, room])
-
-  // Auto-scroll al último mensaje
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
-
-  const sendMessage = () => {
-    if (!input.trim()) return
-
-    socket.emit('chat message', {
-      content: input.trim(),
-      username,
-      room,
-    })
-    setInput('')
+    setCurrentRoom(room)
   }
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') sendMessage()
+  const handleUsernameSubmit = (e) => {
+    e.preventDefault()
+    if (!inputUser.trim()) return
+    const name = inputUser.trim()
+    localStorage.setItem(`chatify_user_${currentRoom}`, name)
+    setUsername(name)
   }
 
-  const formatTime = (timestamp) => {
-    return new Date(timestamp).toLocaleTimeString('es-MX', {
-      hour: '2-digit',
-      minute: '2-digit',
-    })
+  // Pantalla de selección de room
+  if (!currentRoom) {
+    return (
+      <div className="room-selector">
+        <h1>Chatify</h1>
+        <p>Selecciona un room para comenzar</p>
+        <div className="rooms-grid">
+          {ROOMS.map((room) => (
+            <button
+              key={room}
+              className="room-btn"
+              onClick={() => joinRoom(room)}
+            >
+              # {room}
+            </button>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  // Pantalla de ingreso de username si no existe
+  if (!username) {
+    return (
+      <div className="username-prompt">
+        <h2>Entrar a #{currentRoom}</h2>
+        <form onSubmit={handleUsernameSubmit}>
+          <input
+            type="text"
+            placeholder="Tu nombre de usuario"
+            value={inputUser}
+            onChange={(e) => setInputUser(e.target.value)}
+            autoFocus
+          />
+          <button type="submit">Entrar</button>
+        </form>
+        <button
+          className="back-btn"
+          onClick={() => setCurrentRoom(null)}
+        >
+          ← Volver
+        </button>
+      </div>
+    )
   }
 
   return (
-    <div className="chat-container">
-      <div className="chat-header">
-        <h2># {room}</h2>
-        <span className="chat-username">@{username}</span>
-      </div>
-
-      <div className="messages-list">
-        {messages.length === 0 && (
-          <p className="no-messages">No hay mensajes aún. ¡Sé el primero!</p>
-        )}
-        {messages.map((msg, index) => {
-          const isOwn = msg.username === username
-          return (
-            <div
-              key={msg.id || index}
-              className={`message ${isOwn ? 'sent' : 'received'}`}
-            >
-              {!isOwn && (
-                <span className="message-author">{msg.username}</span>
-              )}
-              <div className="message-bubble">
-                <p>{msg.content}</p>
-                <span className="message-time">
-                  {formatTime(msg.created_at)}
-                </span>
-              </div>
-            </div>
-          )
-        })}
-        <div ref={bottomRef} />
-      </div>
-
-      <div className="chat-input-area">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder={`Mensaje en #${room}...`}
-          className="chat-input"
-        />
-        <button onClick={sendMessage} className="send-btn">
-          Enviar
-        </button>
-      </div>
-    </div>
+    <Chat
+      username={username}
+      room={currentRoom}
+    />
   )
 }
 
-export default Chat
+export default App

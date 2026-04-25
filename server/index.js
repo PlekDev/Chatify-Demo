@@ -12,7 +12,7 @@ const httpServer = createServer(app)
 
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5174', //lo cambie de 5173 a 5174
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST'],
   },
 })
@@ -83,6 +83,17 @@ io.on('connection', (socket) => {
       console.error('Error guardando mensaje:', err)
     }
   })
+
+
+  // TYPING — broadcast a otros del room (excepto emisor)
+  socket.on('typing', ({ username, room }) => {
+    socket.to(room).emit('typing', { username })
+  })
+
+  socket.on('stop typing', ({ username, room }) => {
+    socket.to(room).emit('stop typing', { username })
+  })
+
 
   socket.on('disconnect', () => {
     console.log(`❌ Cliente desconectado: ${socket.id}`)
