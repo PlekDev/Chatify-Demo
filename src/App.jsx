@@ -18,6 +18,8 @@ function App() {
         setUsername(saved)
         setCurrentRoom(room)
         return
+      } else {
+        setUsername('')
       }
       // Pedir username si no existe
       setCurrentRoom(room)
