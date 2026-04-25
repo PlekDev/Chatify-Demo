@@ -74,8 +74,8 @@ function App() {
             />
             <button className="submit-btn" type="submit">Connect</button>
           </form>
-          <button className="back-link" onClick={() => setCurrentRoom(null)}>
-            ← Volver
+          <button className="back-btn" onClick={() => setCurrentRoom(null)}>
+            <span className="arrow">←</span> Volver
           </button>
         </div>
       </div>

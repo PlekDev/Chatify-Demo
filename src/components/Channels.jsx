@@ -1,13 +1,20 @@
 import './../App.css'
 
-const Channels = () => {
+const ROOMS = ['General', 'Tech Talk', 'Random', 'Gaming']
 
+const Channels = ({ activeRoom, setRoom }) => {
     return (
         <div className="container" id="channels-container">
-            <div className="channels">#General</div>
-            <div className="channels">#Tech Talk</div>
-            <div className="channels">#Random</div>
-            <div className="channels">#Gaming</div>
+            <h3 className="sidebar-title">Channels</h3>
+            {ROOMS.map((room) => (
+                <div 
+                    key={room}
+                    className={`channels ${activeRoom === room ? 'active' : ''}`}
+                    onClick={() => setRoom(room)}
+                >
+                    <span className="hashtag">#</span> {room}
+                </div>
+            ))}
         </div>
     );
 };

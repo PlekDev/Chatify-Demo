@@ -243,3 +243,37 @@ body {
 }
 
 .send-btn:hover { opacity: 0.9; }
+
+.sidebar-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue-light);
+  padding: 0 20px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+/* The active channel gets the 'vino' color from your palette */
+.channels.active {
+  background-color: var(--wine) !important;
+  color: white !important;
+}
+
+.status-dot {
+  height: 8px;
+  width: 8px;
+  background-color: #44b700; /* Standard green for 'online' */
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.user-badge {
+  background: var(--bg-accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--blue-light);
+  border: 1px solid var(--morado-oscuro);
+}
