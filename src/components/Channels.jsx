@@ -10,7 +10,7 @@ const Channels = ({ activeRoom, setRoom }) => {
                 <div 
                     key={room}
                     className={`channels ${activeRoom === room ? 'active' : ''}`}
-                    onClick={() => setRoom(room)}
+                    onClick={() => setRoom(room)} 
                 >
                     <span className="hashtag">#</span> {room}
                 </div>

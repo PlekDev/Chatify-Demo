@@ -16,14 +16,9 @@ function App() {
       const saved = localStorage.getItem(`chatify_user_${room}`)
       if (saved) {
         setUsername(saved)
-        setCurrentRoom(room)
-        return
       } else {
         setUsername('')
       }
-      // Pedir username si no existe
-      setCurrentRoom(room)
-      return
     }
     setCurrentRoom(room)
   }
@@ -82,16 +77,16 @@ function App() {
         </div>
       </div>
     )
+  } else {
+    // RETURN 3: Channels, Chat y Users
+    return (
+      <div className="app-main-container">
+        <Channels activeRoom={currentRoom} setRoom={joinRoom} />
+        <Chat username={username} room={currentRoom} />
+        <Users room={currentRoom} />
+      </div>
+    )
   }
-
-  // RETURN 3: Channels, Chat y Users
-  return (
-    <div className="app-main-container">
-      <Channels activeRoom={currentRoom} setRoom={setCurrentRoom} />
-      <Chat username={username} room={currentRoom} />
-      <Users room={currentRoom} />
-    </div>
-  )
 }
 
 export default App
