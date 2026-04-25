@@ -4,7 +4,7 @@ import Users from './components/Users'
 import Channels from './components/Channels'
 import './App.css'
 
-const ROOMS = ['General, Tech Talk, Random, Gaming']
+const ROOMS = ['General', 'Tech Talk', 'Random', 'Gaming']
 
 function App() {
   const [currentRoom, setCurrentRoom] = useState(null)
@@ -85,10 +85,8 @@ function App() {
       <div className="chat-main-container">
         <Channels />
         <Chat
-          username="rosita"
-          room="fresita"
-          /*username={username}
-          room={currentRoom}*/
+          username={username}
+          room={currentRoom}
         />
         <Users />
       </div>

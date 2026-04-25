@@ -84,6 +84,17 @@ io.on('connection', (socket) => {
     }
   })
 
+
+  // TYPING — broadcast a otros del room (excepto emisor)
+  socket.on('typing', ({ username, room }) => {
+    socket.to(room).emit('typing', { username })
+  })
+
+  socket.on('stop typing', ({ username, room }) => {
+    socket.to(room).emit('stop typing', { username })
+  })
+
+
   socket.on('disconnect', () => {
     console.log(`❌ Cliente desconectado: ${socket.id}`)
   })
