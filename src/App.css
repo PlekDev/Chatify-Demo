@@ -1,3 +1,11 @@
+/* #012756 –> azul oscuro */
+/* #4bbaec –> azul clarito */
+/* #1e0a30 –> casi negro */
+/* #341557 –> morado oscuro */
+/* #8e1a6a –> vino */
+/* #c10c32 –> rojo */
+
+
 /* ===== RESET & BASE ===== */
 * {
   box-sizing: border-box;
@@ -6,8 +14,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #1a1d21;
+  font-family: Roboto;
+  background: #1e0a30;
   color: #d1d2d3;
   height: 100vh;
   display: flex;

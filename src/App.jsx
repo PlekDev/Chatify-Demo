@@ -36,7 +36,7 @@ function App() {
   if (!currentRoom) {
     return (
       <div className="room-selector">
-        <h1> Chatify</h1>
+        <h1>Chatify</h1>
         <p>Selecciona un room para comenzar</p>
         <div className="rooms-grid">
           {ROOMS.map((room) => (
