@@ -1,17 +1,36 @@
+import { useEffect, useState } from 'react'
+import socket from '../socket'
 import './../App.css'
 
-const Users = ({ userList = [] }) => { 
-    if (userList.length === 0) return <p>No active users.</p>;
+const Users = ({ room }) => {
+    const [userList, setUserList] = useState([])
+
+    useEffect(() => {
+        socket.on('room users', ({ users }) => {
+            setUserList(users)
+        })
+
+        return () => {
+            socket.off('room users')
+        }
+    }, [room])
 
     return (
         <div className="container" id="users-container">
-            {userList.map((user) => (
-                <div className="users" key={user.id}>
-                    <span>{user.name}</span>
-                </div>
-            ))}
+            <h3 className="sidebar-title">En línea — {userList.length}</h3>
+            
+            {userList.length === 0 ? (
+                <p className="no-users">Ningún usuario conectado</p>
+            ) : (
+                userList.map((user, index) => (
+                    <div className="users" key={user.id || index}>
+                        <span className="status-dot"></span>
+                        <span>{user.username || user.name}</span>
+                    </div>
+                ))
+            )}
         </div>
-    );
-};
+    )
+}
 
-export default Users;
+export default Users
