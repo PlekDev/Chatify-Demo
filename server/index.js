@@ -12,7 +12,7 @@ const httpServer = createServer(app)
 
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: 'http://localhost:5174', //lo cambie de 5173 a 5174
     methods: ['GET', 'POST'],
   },
 })
