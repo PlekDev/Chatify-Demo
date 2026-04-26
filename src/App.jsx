@@ -59,11 +59,11 @@ function App() {
     return (
       <div className="username-prompt">
         <div className="glass-card">
-          <h2>Únete a <span className="highlight">#{currentRoom}</span></h2>
+          <h2>¡Únete a <span className="highlight">#{currentRoom}</span>!</h2>
           <form onSubmit={handleUsernameSubmit}>
             <input
               type="text"
-              placeholder="Selecciona un nombre de usuario..."
+              placeholder="Selecciona un nombre."
               value={inputUser}
               onChange={(e) => setInputUser(e.target.value)}
               autoFocus

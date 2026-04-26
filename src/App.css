@@ -1,11 +1,10 @@
 /* PALETA DE COLORES PRINCIPALES */
 :root {
-  --bg-dark: #1e0a30;
-  --bg-sidebar: #012756;
-  --bg-accent: #341557;
-  --blue-light: #4bbaec;
-  --wine: #8e1a6a;
-  --red: #c10c32;
+  --bg-purple: #1e0a30; /* dark purple */
+  --bg-blue: #012756; /* dark blue */
+  --accent-purple: #341557; /* purple */
+  --accent-light: #4bbaec; /* light blue */
+  --wine: #8e1a6a; /* wine */
   --text-main: #ffffff;
   --text-dim: #b9bbbe;
 }
@@ -13,7 +12,7 @@
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, sans-serif;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-purple);
   color: var(--text-main);
 }
 
@@ -24,6 +23,21 @@ body {
   overflow: hidden;
 }
 
+/* RETURN 2: Ingreso ----------------------------------------------------------------- */
+
+.username-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.glass-card {
+  text-align: left;
+  background: pink;
+}
+
 /* TODO LO RELACIONADO AL ROOM ------------------------------------------------------- */
 
 .room-selector {
@@ -32,7 +46,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-sidebar) 100%);
+  background: linear-gradient(135deg, var(--bg-purple) 0%, var(--bg-blue) 100%);
 }
 
 .rooms-grid {
@@ -45,7 +59,7 @@ body {
 }
 
 .room-btn {
-  background: var(--bg-accent);
+  background: var(--accent-purple);
   border: 2px solid transparent;
   padding: 20px;
   border-radius: 12px;
@@ -56,20 +70,12 @@ body {
 }
 
 .room-btn:hover {
-  border-color: var(--blue-light);
+  border-color: var(--accent-light);
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 /* PROMPT PARA USERNAME -------------------------------------------------------------- */
-
-.username-prompt {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
 
 .username-prompt form {
   display: flex;
@@ -77,7 +83,7 @@ body {
 }
 
 .username-prompt input {
-  background: var(--bg-accent);
+  background: var(--accent-purple);
   border: 1px solid var(--wine);
   padding: 12px 20px;
   border-radius: 8px;
@@ -109,8 +115,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
-  background-color: var(--bg-sidebar); /* #012756 */
-  border-right: 1px solid var(--bg-accent);
+  background-color: var(--bg-blue); /* #012756 */
+  border-right: 1px solid var(--accent-purple);
 }
 
 #channels-container {
@@ -120,7 +126,7 @@ body {
 #users-container {
   width: 240px;
   border-right: none;
-  border-left: 1px solid var(--bg-accent);
+  border-left: 1px solid var(--accent-purple);
 }
 
 .channels, .users {
@@ -134,7 +140,7 @@ body {
 }
 
 .channels:hover, .users:hover {
-  background-color: var(--bg-accent);
+  background-color: var(--accent-purple);
   color: white;
 }
 
@@ -147,7 +153,7 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--blue-light);
+  color: var(--accent-light);
   padding: 0 20px;
   margin-bottom: 15px;
   opacity: 0.8;
@@ -168,11 +174,11 @@ body {
 }
 
 .user-badge {
-  background: var(--bg-accent);
+  background: var(--accent-purple);
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
-  color: var(--blue-light);
+  color: var(--accent-light);
   border: 1px solid var(--morado-oscuro);
 }
 
@@ -182,18 +188,18 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-dark); /* #1e0a30 */
+  background-color: var(--bg-purple); /* #1e0a30 */
 }
 
 .chat-header {
   padding: 15px 25px;
-  border-bottom: 1px solid var(--bg-accent);
+  border-bottom: 1px solid var(--accent-purple);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.chat-header h2 { margin: 0; color: var(--blue-light); font-size: 1.2rem; }
+.chat-header h2 { margin: 0; color: var(--accent-light); font-size: 1.2rem; }
 .chat-username { color: var(--text-dim); font-size: 0.9rem; }
 
 /* MENSAJES DEL CHAT */
@@ -218,7 +224,7 @@ body {
 
 .message-author {
   font-size: 0.8rem;
-  color: var(--blue-light);
+  color: var(--accent-light);
   margin-bottom: 4px;
   margin-left: 5px;
 }
@@ -236,7 +242,7 @@ body {
 }
 
 .received .message-bubble {
-  background-color: var(--bg-accent);
+  background-color: var(--accent-purple);
   color: white;
   border-bottom-left-radius: 4px;
 }
@@ -254,13 +260,13 @@ body {
   padding: 20px;
   display: flex;
   gap: 12px;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-purple);
 }
 
 .chat-input {
   flex: 1;
-  background-color: var(--bg-accent);
-  border: 1px solid var(--bg-sidebar);
+  background-color: var(--accent-purple);
+  border: 1px solid var(--bg-blue);
   border-radius: 12px;
   padding: 14px;
   color: white;
@@ -268,11 +274,11 @@ body {
 }
 
 .send-btn {
-  background-color: var(--blue-light);
+  background-color: var(--accent-light);
   border: none;
   border-radius: 12px;
   padding: 0 25px;
-  color: var(--bg-dark);
+  color: var(--bg-purple);
   font-weight: bold;
   cursor: pointer;
   transition: opacity 0.2s;
