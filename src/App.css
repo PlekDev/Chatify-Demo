@@ -35,7 +35,47 @@ body {
 
 .glass-card {
   text-align: left;
-  background: pink;
+}
+
+.highlight {
+  color: var(--wine);
+}
+
+.username-prompt form {
+  display: flex;
+  gap: 10px;
+}
+
+.username-prompt input {
+  background: var(--accent-purple);
+  border: 1px solid var(--wine);
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: var(--text-main);
+  outline: none;
+}
+
+.username-prompt button[type="submit"] {
+  background: var(--wine);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  color: var(--text-main);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.username-prompt button[type="submit"]:hover {
+  color: var(--accent-purple);
+}
+
+.username-prompt .back-btn {
+  margin-top: 20px;
+  background: transparent;
+  color: var(--text-dim);
+  border: none;
+  cursor: pointer;
 }
 
 /* TODO LO RELACIONADO AL ROOM ------------------------------------------------------- */
@@ -63,7 +103,7 @@ body {
   border: 2px solid transparent;
   padding: 20px;
   border-radius: 12px;
-  color: white;
+  color: var(--text-main);
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -73,40 +113,6 @@ body {
   border-color: var(--accent-light);
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-/* PROMPT PARA USERNAME -------------------------------------------------------------- */
-
-.username-prompt form {
-  display: flex;
-  gap: 10px;
-}
-
-.username-prompt input {
-  background: var(--accent-purple);
-  border: 1px solid var(--wine);
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: white;
-  outline: none;
-}
-
-.username-prompt button[type="submit"] {
-  background: var(--wine);
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.back-btn {
-  margin-top: 20px;
-  background: transparent;
-  color: var(--text-dim);
-  border: none;
-  cursor: pointer;
 }
 
 /* USERS Y CHANNELS ------------------------------------------------------------------ */
@@ -141,12 +147,12 @@ body {
 
 .channels:hover, .users:hover {
   background-color: var(--accent-purple);
-  color: white;
+  color: var(--text-main);
 }
 
 .channels.active {
   background-color: var(--wine);
-  color: white;
+  color: var(--text-main);
 }
 
 .sidebar-title {
@@ -161,7 +167,7 @@ body {
 
 .channels.active {
   background-color: var(--wine) !important;
-  color: white !important;
+  color: var(--text-main) !important;
 }
 
 .status-dot {
@@ -237,13 +243,13 @@ body {
 
 .sent .message-bubble {
   background-color: var(--wine);
-  color: white;
+  color: var(--text-main);
   border-bottom-right-radius: 4px;
 }
 
 .received .message-bubble {
   background-color: var(--accent-purple);
-  color: white;
+  color: var(--text-main);
   border-bottom-left-radius: 4px;
 }
 
@@ -269,7 +275,7 @@ body {
   border: 1px solid var(--bg-blue);
   border-radius: 12px;
   padding: 14px;
-  color: white;
+  color: var(--text-main);
   outline: none;
 }
 
