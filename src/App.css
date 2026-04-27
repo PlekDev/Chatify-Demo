@@ -9,8 +9,11 @@
   --text-dim: #b9bbbe;
 }
 
-@media screen and (max-width: 600px) {
-
+@media screen and (max-width: 540px) {
+  .glass-card {
+    align-items: center;
+    width: 90%;
+  }
 }
 
 body {
@@ -19,6 +22,7 @@ body {
   background-color: var(--bg-purple);
   color: var(--text-main);
   font-size: 1.1rem;
+  border: red 10px;
 }
 
 button, input {
@@ -168,7 +172,7 @@ h3 {
   display: flex;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 /* Users & Channels ---------------------------------- */
@@ -180,14 +184,10 @@ h3 {
   background-color: var(--bg-purple);
   border-left: 2px solid var(--accent-purple);
   border-right: 2px solid var(--accent-purple);
-}
-
-#channels-container {
-  width: 260px;
-}
-
-#users-container {
+  overflow-x: scroll;
   width: 240px;
+  max-width: 240px;
+  min-width: 0vw;
 }
 
 .sidebar-title {
@@ -241,7 +241,7 @@ h3 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-purple); /* #1e0a30 */
+  background-color: var(--bg-purple);
 }
 
 .chat-header {

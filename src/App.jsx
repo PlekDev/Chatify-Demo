@@ -82,7 +82,7 @@ function App() {
       <div className="app-main-container">
         <Channels activeRoom={currentRoom} setRoom={joinRoom} />
         <Chat username={username} room={currentRoom} />
-        <Users room={currentRoom} />
+        <Users className="app-users" room={currentRoom} />
       </div>
     )
   }
