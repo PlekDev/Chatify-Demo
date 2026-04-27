@@ -14,10 +14,25 @@ body {
   font-family: 'Inter', -apple-system, sans-serif;
   background-color: var(--bg-purple);
   color: var(--text-main);
+  font-size: 1.1rem;
+}
+
+button {
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2.3rem;
 }
 
 .glass-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 500px;
   text-align: left;
+  margin: 10vh;
 }
 
 .app-main-container {
@@ -36,6 +51,7 @@ body {
   justify-content: center;
   height: 100vh;
   background: linear-gradient(135deg, var(--bg-purple) 0%, var(--bg-blue) 100%);
+  padding: 10vh;
 }
 
 .logo-text {
@@ -62,7 +78,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  width: 80%;
+  width: 100%;
   max-width: 800px;
   margin-top: 30px;
 }
@@ -135,6 +151,7 @@ body {
   color: var(--text-dim);
   border: none;
   cursor: pointer;
+  text-align: left;
 }
 
 /* USERS Y CHANNELS ------------------------------------------------------------------ */
