@@ -17,13 +17,17 @@ body {
   font-size: 1.1rem;
 }
 
-button {
+button, input {
   color: var(--text-main);
   font-size: 1rem;
 }
 
 h1 {
-  font-size: 2.3rem;
+  font-size: 2.2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
 }
 
 .glass-card {
@@ -32,7 +36,7 @@ h1 {
   flex-wrap: wrap;
   max-width: 500px;
   text-align: left;
-  margin: 10vh;
+  background: transparent;
 }
 
 .app-main-container {
@@ -51,7 +55,6 @@ h1 {
   justify-content: center;
   height: 100vh;
   background: linear-gradient(135deg, var(--bg-purple) 0%, var(--bg-blue) 100%);
-  padding: 10vh;
 }
 
 .logo-text {
@@ -72,6 +75,10 @@ h1 {
 @keyframes logoGradient {
   from { background-position: 0% center; }
   to { background-position: 200% center; }
+}
+
+.subtitle {
+  margin: 0px;
 }
 
 .rooms-grid {
