@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import Chat from './components/Chat'
-import Users from './components/Users'
-import Channels from './components/Channels'
+import Chat from './Chat'
+import Users from './Users'
+import Channels from './Channels'
 import './App.css'
+
+// !! <- cambios al App.jsx original
 
 const ROOMS = ['General', 'Tech Talk', 'Random', 'Gaming']
 
@@ -16,8 +18,8 @@ function App() {
       if (saved) {
         setUsername(saved)
       } else {
-        setUsername('')
-        setInputUser('')
+        setUsername('') // !! esto no estaba
+        setInputUser('') // !! esto no estaba
       }
     setCurrentRoom(room)
   }
@@ -63,7 +65,7 @@ function App() {
           <form onSubmit={handleUsernameSubmit}>
             <input
               type="text"
-              placeholder="Selecciona un nombre."
+              placeholder="Tu nombre de usuario."
               value={inputUser}
               onChange={(e) => setInputUser(e.target.value)}
               autoFocus
