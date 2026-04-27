@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import socket from '../socket'
-import './App.css'
+import './../App.css'
 
 const Users = ({ room }) => {
     const [userList, setUserList] = useState([])

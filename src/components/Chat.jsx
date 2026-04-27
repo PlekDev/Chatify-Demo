@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import socket from '../socket'
-import './App.css'
+import './../App.css'
 
 const ROOMS = ['General', 'Tech Talk', 'Random', 'Gaming']
 

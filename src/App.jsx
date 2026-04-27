@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Chat from './Chat'
-import Users from './Users'
-import Channels from './Channels'
+import Chat from './components/Chat'
+import Users from './components/Users'
+import Channels from './components/Channels'
 import './App.css'
 
 // !! <- cambios al App.jsx original
