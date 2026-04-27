@@ -9,6 +9,10 @@
   --text-dim: #b9bbbe;
 }
 
+@media screen and (max-width: 600px) {
+
+}
+
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, sans-serif;
@@ -127,7 +131,7 @@ h3 {
 
 .username-prompt input {
   background: var(--accent-purple);
-  border: 1px solid var(--wine);
+  border: 2px solid var(--wine);
   padding: 12px 20px;
   border-radius: 8px;
   color: var(--text-main);
@@ -146,7 +150,7 @@ h3 {
 }
 
 .username-prompt button[type="submit"]:hover {
-  color: var(--accent-purple);
+  opacity: 0.9;
 }
 
 .username-prompt .back-btn {
@@ -173,8 +177,9 @@ h3 {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
-  background-color: var(--bg-purple); /* #012756 */
-  border-right: 1px solid var(--accent-purple);
+  background-color: var(--bg-purple);
+  border-left: 2px solid var(--accent-purple);
+  border-right: 2px solid var(--accent-purple);
 }
 
 #channels-container {
@@ -183,8 +188,6 @@ h3 {
 
 #users-container {
   width: 240px;
-  border-right: none;
-  border-left: 1px solid var(--accent-purple);
 }
 
 .sidebar-title {
@@ -242,15 +245,15 @@ h3 {
 }
 
 .chat-header {
-  padding: 15px 25px;
-  border-bottom: 1px solid var(--accent-purple);
+  padding: 20px 25px;
+  border-bottom: 2px solid var(--accent-purple);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.chat-header h2 { margin: 0; color: var(--accent-light); font-size: 1.2rem; }
-.chat-username { color: var(--text-dim); font-size: 0.9rem; }
+.chat-header h3 { margin: 0; color: var(--accent-light); }
+.chat-username { color: var(--text-dim); }
 
 /* Mensajitos --------------------- */
 
@@ -263,6 +266,16 @@ h3 {
   gap: 15px;
 }
 
+.no-messages {
+  color: var(--text-dim)
+}
+
+.message-author {
+  color: var(--accent-light);
+  margin-bottom: 4px;
+  margin-left: 5px;
+}
+
 .message {
   display: flex;
   flex-direction: column;
@@ -271,13 +284,6 @@ h3 {
 
 .message.sent { align-self: flex-end; align-items: flex-end; }
 .message.received { align-self: flex-start; }
-
-.message-author {
-  font-size: 0.8rem;
-  color: var(--accent-light);
-  margin-bottom: 4px;
-  margin-left: 5px;
-}
 
 .message-bubble {
   padding: 12px 16px;
@@ -298,8 +304,8 @@ h3 {
 }
 
 .message-time {
-  font-size: 0.7rem;
-  opacity: 0.6;
+  font-size: 1rem;
+  color: var(--text-dim);
   margin-top: 5px;
   display: block;
 }
@@ -316,7 +322,7 @@ h3 {
 .chat-input {
   flex: 1;
   background-color: var(--accent-purple);
-  border: 1px solid var(--bg-blue);
+  border: 2px solid var(--bg-blue);
   border-radius: 12px;
   padding: 14px;
   color: var(--text-main);

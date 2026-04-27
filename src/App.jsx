@@ -68,7 +68,7 @@ function App() {
               onChange={(e) => setInputUser(e.target.value)}
               autoFocus
             />
-            <button className="submit-btn" type="submit">Connect</button>
+            <button className="submit-btn" type="submit">Conectar</button>
           </form>
           <button className="back-btn" onClick={() => setCurrentRoom(null)}>
             <span className="arrow">←</span> Volver

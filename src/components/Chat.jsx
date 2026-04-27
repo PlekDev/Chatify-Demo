@@ -62,7 +62,7 @@ const Chat = ({ username, room }) => {
   return (
     <div className="chat-container">
       <div className="chat-header">
-        <h2># {room}</h2>
+        <h3># {room}</h3>
         <span className="chat-username">@{username}</span>
       </div>
 
