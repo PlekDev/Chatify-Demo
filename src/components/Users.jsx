@@ -18,13 +18,12 @@ const Users = ({ room }) => {
     return (
         <div className="container" id="users-container">
             <h3 className="sidebar-title">En línea — {userList.length}</h3>
-            
             {userList.length === 0 ? (
-                <p className="no-users">Ningún usuario conectado</p>
+                <p className="no-users"><span className="off-dot"></span>Ningún usuario conectado</p>
             ) : (
                 userList.map((user, index) => (
                     <div className="users" key={user.id || index}>
-                        <span className="status-dot"></span>
+                        <span className="on-dot"></span>
                         <span>{user.username || user.name}</span>
                     </div>
                 ))

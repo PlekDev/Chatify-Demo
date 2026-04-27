@@ -30,20 +30,19 @@ h2 {
   font-size: 1.8rem;
 }
 
-.glass-card {
+h3 {
+  font-size: 1.3rem;
+  margin: 0px;
+  color: var(--wine);
+}
+
+.glass-card { /* el container de todo en return 1 y 2 */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   max-width: 500px;
   text-align: left;
   background: transparent;
-}
-
-.app-main-container {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
 }
 
 /* RETURN 1: Escoger ----------------------------------------------------------------- */
@@ -107,8 +106,6 @@ h2 {
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* RETURN 3: App Principal ----------------------------------------------------------- */
-
 /* RETURN 2: Ingresar ---------------------------------------------------------------- */
 
 .username-prompt {
@@ -161,13 +158,22 @@ h2 {
   text-align: left;
 }
 
-/* USERS Y CHANNELS ------------------------------------------------------------------ */
+/* RETURN 3: App Principal ----------------------------------------------------------- */
+
+.app-main-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Users & Channels ---------------------------------- */
 
 .container {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
-  background-color: var(--bg-blue); /* #012756 */
+  background-color: var(--bg-purple); /* #012756 */
   border-right: 1px solid var(--accent-purple);
 }
 
@@ -181,7 +187,14 @@ h2 {
   border-left: 1px solid var(--accent-purple);
 }
 
-.channels, .users {
+.sidebar-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 20px;
+  margin-bottom: 15px;
+}
+
+.channels, .users, .no-users {
   padding: 10px 20px;
   margin: 4px 12px;
   border-radius: 8px;
@@ -197,26 +210,20 @@ h2 {
 }
 
 .channels.active {
-  background-color: var(--wine);
-  color: var(--text-main);
-}
-
-.sidebar-title {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--accent-light);
-  padding: 0 20px;
-  margin-bottom: 15px;
-  opacity: 0.8;
-}
-
-.channels.active {
   background-color: var(--wine) !important;
   color: var(--text-main) !important;
 }
 
-.status-dot {
+.off-dot {
+  height: 8px;
+  width: 8px;
+  background-color: #b70000;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.on-dot {
   height: 8px;
   width: 8px;
   background-color: #44b700;
@@ -225,16 +232,7 @@ h2 {
   margin-right: 10px;
 }
 
-.user-badge {
-  background: var(--accent-purple);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  color: var(--accent-light);
-  border: 1px solid var(--morado-oscuro);
-}
-
-/* r u seeing this chat -------------------------------------------------------------- */
+/* r u seeing this chat ------------------------------ */
 
 .chat-container {
   flex: 1;
@@ -254,7 +252,7 @@ h2 {
 .chat-header h2 { margin: 0; color: var(--accent-light); font-size: 1.2rem; }
 .chat-username { color: var(--text-dim); font-size: 0.9rem; }
 
-/* MENSAJES DEL CHAT */
+/* Mensajitos --------------------- */
 
 .messages-list {
   flex: 1;
