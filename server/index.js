@@ -26,6 +26,14 @@ app.get('/health', (req, res) => {
 })
 
 // ===== SOCKET.IO EVENTS =====
+
+const getRoomUsers = async (room) => {
+  const sockets = await io.in(room).fetchSockets()
+  return sockets
+    .filter((s) => s.data.username)
+    .map((s) => ({ id: s.id, username: s.data.username }))
+}
+
 io.on('connection', (socket) => {
   console.log(`🔌 Cliente conectado: ${socket.id}`)
 
@@ -42,6 +50,9 @@ io.on('connection', (socket) => {
     socket.data.room = room
 
     console.log(`👤 ${username} se unió a #${room}`)
+
+    const users = await getRoomUsers(room)
+    io.to(room).emit('room users', { users })
 
     try {
       // Cargar historial de los últimos 50 mensajes del room
@@ -95,8 +106,13 @@ io.on('connection', (socket) => {
   })
 
 
-  socket.on('disconnect', () => {
+  socket.on('disconnect', async () => {
     console.log(`❌ Cliente desconectado: ${socket.id}`)
+    const room = socket.data.room
+    if (room) {
+      const users = await getRoomUsers(room)
+      io.to(room).emit('room users', { users })
+    }
   })
 })
 
